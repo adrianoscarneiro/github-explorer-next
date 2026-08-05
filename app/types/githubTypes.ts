@@ -4,4 +4,7 @@ export interface GithubUser {
   followers: number;
   following: number;
   avatar_url: string;
+  location: string;
+  public_repos: number;
+  blog: string;
 }
