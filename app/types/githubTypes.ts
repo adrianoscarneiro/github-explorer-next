@@ -11,7 +11,7 @@ export interface GithubUser {
 
 export interface GithubRepos {
   id: number;
-  name_repo: string;
+  name: string;
   description: string | null;
   language: string;
   created_at: string;
