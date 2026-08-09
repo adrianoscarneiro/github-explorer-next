@@ -20,22 +20,24 @@ export default function UserCard({
     blog,
   } = userDetails;
   return (
-    <main className="flex flex-col w-full py-4 px-2 sm:flex-row sm:gap-2 rounded-xl sm:justify-center bg-[#1E293B] sm:w-140 sm:max-w-150 sm:max-h-80">
+    <div className="flex flex-col secondary px-2 py-4 w-full sm:flex-col sm:gap-2 rounded-xl sm:place-items-center sm:w-110 sm:max-w-150 sm:max-h-screen outline-1 outline-white">
       {/* Main card section*/}
-      <section className="flex flex-col gap-4 justify-center place-items-center sm:min-h-full rounded-xl sm:w-1/3">
+      <section className="flex flex-col gap-4 justify-center place-items-center rounded-xl ">
         {/* Picture section*/}
         <Image
-          width={130}
-          height={150}
+          width={100}
+          height={100}
           src={avatar_url}
           className="rounded-full outline-6"
           alt={`This is ${name}'s avatar`}
         />
-        <h2>{name ? name : username}</h2>
+        <div className="">
+          <p>{name ? name : username}</p>
+        </div>
       </section>
-      <section className="h-full py-4 flex flex-col gap-2 place-items-center sm:w-2/3 sm:max-h-full sm:flex-wrap text-center rounded-xl">
+      <section className="h-full flex flex-col gap-2 place-items-center sm:max-h-full sm:flex-wrap text-center rounded-xl">
         {/* Card details section*/}
-        <div className="flex flex-row w-80 gap-2 justify-evenly max-w-full ">
+        <div className="flex flex-row color-black w-80 gap-6 justify-center max-w-full sm:w-auto rounded-xl">
           <div>
             <Badge title="Followers" value={followers} />
           </div>
@@ -46,26 +48,31 @@ export default function UserCard({
             <Badge title="Public Repos" value={public_repos} />
           </div>
         </div>
-        <div className="flex flex-row w-80 justify-evenly">
+        <div className="flex flex-row w-100 justify-evenly sm:gap-4 truncate sm:flex-col sm:w-50">
           {location && (
             <div className="">
-              <Badge title="Location" value={location} />
+              <p>Location</p>
+              <p>{location}</p>
             </div>
           )}
-          <div className="">
+          <div className="truncate">
             {blog && (
-              <a href={blog}>
-                <Badge title="Personal Page" value={blog} />
-              </a>
+              <div>
+                <p>Personal Page</p>
+                <a href={blog}>
+                  <p>{blog}</p>
+                </a>
+              </div>
             )}
           </div>
         </div>
         {bio && (
-          <div className="px-4 w-80">
-            <Badge title="Bio" value={bio} />
+          <div className="w-80 sm:w-full">
+            <p>Bio</p>
+            <p>{bio}</p>
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }
