@@ -19,3 +19,9 @@ export interface GithubRepos {
   watchers_count: number;
   stargazers_count: number;
 }
+
+export interface GithubSocialConnection {
+  id: number;
+  login: string;
+  avatar_url: string;
+}

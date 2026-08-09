@@ -1,4 +1,8 @@
-import { GithubRepos, GithubUser } from "../types/githubTypes";
+import {
+  GithubRepos,
+  GithubUser,
+  GithubSocialConnection,
+} from "../types/githubTypes";
 
 class APIError extends Error {
   code: string;
@@ -41,6 +45,7 @@ export async function getGithubUser(username: string): Promise<GithubUser> {
     if (response.status === 401) {
       throw new APIError("Invalid Token", "UNAUTHORIZED", 401);
     }
+    throw new APIError("Unknown error", "UNKNOWN", response.status);
   }
 
   try {
@@ -76,6 +81,89 @@ export async function getGithubRepos(username: string): Promise<GithubRepos[]> {
     if (response.status === 401) {
       throw new APIError("Invalid Token", "UNAUTHORIZED", 401);
     }
+    throw new APIError("Unknown error", "UNKNOWN", response.status);
+  }
+
+  try {
+    return await response.json();
+  } catch {
+    throw new APIError("Invalid response", "PARSE_ERROR");
+  }
+}
+
+export async function getGithubFollowers(
+  username: string,
+): Promise<GithubSocialConnection[]> {
+  let response: Response;
+
+  try {
+    response = await fetch(
+      `https://api.github.com/users/${username}/followers`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        next: {
+          revalidate: 3600,
+        },
+      },
+    );
+  } catch {
+    throw new APIError("Network failed", "NETWORK_ERROR");
+  }
+
+  if (!response.ok) {
+    if (response.status === 404) {
+      throw new APIError("No users found", "NOT_FOUND", 404);
+    }
+    if (response.status === 403) {
+      throw new APIError("Rate limit exceeded", "RATE_LIMITED", 403);
+    }
+    if (response.status === 401) {
+      throw new APIError("Invalid Token", "UNAUTHORIZED", 401);
+    }
+    throw new APIError("Unknown error", "UNKNOWN", response.status);
+  }
+
+  try {
+    return await response.json();
+  } catch {
+    throw new APIError("Invalid response", "PARSE_ERROR");
+  }
+}
+
+export async function getGithubFollowing(
+  username: string,
+): Promise<GithubSocialConnection[]> {
+  let response: Response;
+
+  try {
+    response = await fetch(
+      `https://api.github.com/users/${username}/following`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        next: {
+          revalidate: 3600,
+        },
+      },
+    );
+  } catch {
+    throw new APIError("Network failed", "NETWORK_ERROR");
+  }
+
+  if (!response.ok) {
+    if (response.status === 404) {
+      throw new APIError("No users found", "NOT_FOUND", 404);
+    }
+    if (response.status === 403) {
+      throw new APIError("Rate limit exceeded", "RATE_LIMITED", 403);
+    }
+    if (response.status === 401) {
+      throw new APIError("Invalid Token", "UNAUTHORIZED", 401);
+    }
+    throw new APIError("Unknown error", "UNKNOWN", response.status);
   }
 
   try {
