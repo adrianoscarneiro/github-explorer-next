@@ -1,35 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --h1: clamp(1.45rem, 1.45rem + 2.5vw, 1.8rem);
-  --h2: clamp(1.125rem, 1rem + 1vw, 1.5rem);
-  --p: clamp(0.8rem, 0.8rem + 0.25vw, 0.9rem);
-  --input: clamp(0.5rem, 0.6rem + 0.25vw, 0.7rem);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    sans-serif;
+  --background: #0d1117; /* Body and main */
+  --secondary: hsl(
+    199,
+    19%,
+    71%,
+    5%
+  ); /* header, section, article, cards, input */
+  --border: #30363d;
+
+  --primary: #58a6ff; /*Buttons, a, links, navigation */
+  --primary-hover: #79c0ff;
+
+  --text: #f0f6fc; /* all text elements */
+  --text-secondary: #8b949e;
+
+  --success: #3fb950;
+  --danger: #f85149;
+
+  --accent: #6e56cf; /*Badges, status, KPIs*/
+
+  --title-lg: clamp(1.45rem, 1.45rem + 2.5vw, 1.8rem);
+  --title: clamp(1.125rem, 1rem + 1vw, 1.5rem);
+  --body: clamp(1rem, 0.8rem + 0.25vw, 1.1rem);
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antiliased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @theme inline {
+  /* Colours */
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-text: var(--text);
+  --bg-accent: var(--accent);
   --primary: var(--primary);
+  --primary-hover: var(--primary-hover);
+
+  /* Font types */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --text-h1: var(--h1);
-  --text-h2: var(--h2);
-  --text-p: var(--p);
-  --text-input: var(--input);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-  }
+  /* Font size */
+  --text-title-lg: var(--title-lg);
+  --text-title: var(--title);
+  --text-body: var(--body);
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+label {
+  color: var(--text);
 }
