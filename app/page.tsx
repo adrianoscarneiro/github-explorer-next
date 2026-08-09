@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchMenu";
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-3xl flex-col items-center place-items-center justify-between py-32 px-14 bg-white dark:bg-black sm:items-start">
+      <div className="flex w-full max-w-3xl flex-col items-center place-items-center justify-between py-32 px-14 bg-white dark:bg-black sm:items-start">
         <section
           id="home-banner"
           className="flex flex-col gap-8 text-justify place-items-center px-4"
@@ -25,7 +25,7 @@ export default function Home() {
             <SearchBar />
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
