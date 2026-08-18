@@ -25,7 +25,13 @@ function SearchBar() {
       <input
         type="submit"
         value="Search"
-        className="w-1/3 h-10 border-s-2 outline-none rounded-e-2xl"
+        className="w-1/3 h-10 border-s-2 rounded-e-2xl bg-zinc-900
+  border border-white/10
+  shadow-sm
+  hover:bg-zinc-800
+  hover:border-white/20
+  hover:shadow-[0_8px_24px_rgba(255,255,255,0.10)]
+  transition-all"
       />
     </form>
   );
