@@ -8,24 +8,24 @@ function SearchBar() {
 
   function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    const value: string = inputRef.current?.value;
+    const value: string = inputRef.current?.value.trim();
     router.push(`./${value}`);
   }
 
   return (
-    <form className="flex flex-row gap-2" onSubmit={handleSubmit}>
+    <form className="min-w-100 outline-2 rounded-2xl" onSubmit={handleSubmit}>
       <input
         type="text"
         name="searchTxt"
-        id=""
-        placeholder="Enter the username"
-        className="text-input border rounded-xl py-1 px-1"
+        placeholder="Enter the username..."
+        className="w-2/3 h-10 px-4 outline-none bg-none"
+        autoComplete="off"
         ref={inputRef}
       />
       <input
         type="submit"
         value="Search"
-        className="text-input outline-1 rounded-xl px-2"
+        className="w-1/3 h-10 border-s-2 outline-none rounded-e-2xl"
       />
     </form>
   );
