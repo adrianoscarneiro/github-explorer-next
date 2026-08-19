@@ -13,7 +13,7 @@ export interface GithubRepos {
   id: number;
   name: string;
   description: string | null;
-  language: string;
+  language: string | null;
   created_at: string;
   updated_at: string;
   watchers_count: number;

@@ -1,15 +1,16 @@
 import { GithubRepos } from "../types/githubTypes";
 import { formatDate } from "../utils/modules";
-import Badge from "./Bagde";
+import Badge from "./Badge";
 
-export default async function RepoCard({
-  name,
-  language,
-  description,
-  updated_at,
-  watchers_count,
-  stargazers_count,
-}: GithubRepos) {
+export default function RepoCard({ repoProps }: { repoProps: GithubRepos }) {
+  const {
+    name,
+    language,
+    description,
+    updated_at,
+    watchers_count,
+    stargazers_count,
+  } = repoProps;
   return (
     <div className="flex flex-col px-4 py-4 sm:flex-row w-full gap-2">
       <div className="flex flex-col sm:w-2/3 sm:h-full sm:justify-evenly gap-2 ">
