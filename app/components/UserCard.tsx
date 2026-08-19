@@ -1,5 +1,5 @@
 import { GithubUser } from "../types/githubTypes";
-import Badge from "./Bagde";
+import Badge from "./Badge";
 import Image from "next/image";
 
 export default function UserCard({
