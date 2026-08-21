@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function FollowCard({
@@ -10,8 +10,11 @@ export default function FollowCard({
   avatar_url?: string;
 }) {
   return (
-    <div className="flex sm:flex-col sm:place-items-center gap-1 text-center ">
-      <Link href={`./${username}`}>
+    <div className="min-w-20">
+      <Link
+        href={`./${username}`}
+        className="flex flex-col gap-1 place-items-center"
+      >
         <img
           src={avatar_url ?? null}
           alt={`This is ${username}'s avatar`}
@@ -21,7 +24,9 @@ export default function FollowCard({
           loading="lazy"
           decoding="async"
         />
-        <p className="truncate">{username}</p>
+        <p className="w-20 text-secondary-text self-center truncate">
+          {username.toLowerCase()}
+        </p>
       </Link>
     </div>
   );

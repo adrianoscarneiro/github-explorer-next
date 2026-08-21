@@ -14,22 +14,24 @@ export default async function FollowList({
       ? await getGithubFollowers(username)
       : await getGithubFollowing(username);
 
+  const followList = userFollow.slice(0, 9).map(({ id, login, avatar_url }) => {
+    return (
+      <li key={id}>
+        <FollowCard username={login} avatar_url={avatar_url} />
+      </li>
+    );
+  });
+
   return (
-    <div>
-      <h2>{followType}</h2>
+    <section className="flex flex-col gap-4 text-center">
+      <h2 className="text-primary-text">{followType}</h2>
       {userFollow.length === 0 ? (
         <p>No {followType.toLowerCase()} yet</p>
       ) : (
-        <div className="flex sm:flex-row sm:flex-wrap px-2 py-4">
-          {userFollow.slice(0, 9).map(({ id, login, avatar_url }) => {
-            return (
-              <div key={`${id}`} className="sm:w-1/3">
-                <FollowCard username={login} avatar_url={avatar_url} />
-              </div>
-            );
-          })}
-        </div>
+        <ul className="grid grid-cols-3 gap-2 place-items-center">
+          {followList}
+        </ul>
       )}
-    </div>
+    </section>
   );
 }
