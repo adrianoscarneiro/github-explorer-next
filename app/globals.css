@@ -4,9 +4,14 @@
   font-family:
     -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     sans-serif;
-  --background: #0d1117;
-  --background-card: #212327bc;
-  --text: white;
+
+  /*/Colors/*/
+  --background: #ffffff;
+  --foreground: #f2f2f2;
+  --card: #e6e6e6;
+  --primary-text: #0d0d0d;
+  --secondary-text: #4d4d4d;
+
   --title-lg: clamp(2rem, 2rem + 0.25vsw, 2.75rem);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,12 +19,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark {
+  --background: #000000;
+  --foreground: #0d0d0d;
+  --card: #1a1a1a;
+  --primary-text: #f2f2f2;
+  --secondary-text: #bfbfbf;
+}
+
 @theme inline {
   /* Font types */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --bg-card: var(--background-card);
-  --text-title-lg: var(--title-lg);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary-text: var(--primary-text);
+  --color-secondary-text: var(--secondary-text);
 }
 
 body,
@@ -31,12 +47,16 @@ html {
 }
 
 p {
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  text-align: justify;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  text-align: center;
 }
 
 h1 {
   font-size: clamp(2rem, 2vw, 4rem);
+  font-weight: bold;
+}
+h2 {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
   font-weight: bold;
 }
 
