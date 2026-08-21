@@ -23,8 +23,8 @@ export default async function UserPage({
   } = await getGithubUser(user);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-2 p-2">
-      <div className="flex flex-col place-items-center sm:w-1/4 sm:max-h-screen rounded-xl text-input">
+    <div className="grid grid-cols-1 grid-rows-[0.3fr_0.3fr_1fr] bg-background gap-6 lg:grid-rows-1 lg:grid-cols-[0.7fr_1.5fr_0.8fr]">
+      <div className="">
         <UserCard
           userDetails={{
             name,
@@ -40,24 +40,21 @@ export default async function UserPage({
         />
       </div>
 
-      <div className="flex flex-col pb-2 gap-2 sm:place-items-center  sm:w-1/2 sm:max-h-screen sm:overflow-hidden rounded-xl ">
-        <div className="w-full text-center py-2 rounded-t-xl">
-          <h2>Repositories</h2>
-        </div>
-        <div className="flex flex-col gap-2 mx-2 ">
+      <div className="row-start-3 lg:col-start-2 lg:row-start-1 max-h-screen">
+        <div className="flex flex-col gap-2">
           <Suspense fallback={"Loading..."}>
             <RepoList user={user} />
           </Suspense>
         </div>
       </div>
 
-      <div className="flex sm:flex-col sm:gap-6 sm:place-items-center sm:w-1/4 sm:h-1/2 rounded-xl ">
-        <div className="outline-1 sm:w-full px-2 py-4 rounded-xl">
+      <div className="flex flex-col gap-2 max-h-screen row-start-2 lg:row-start-1 lg:col-start-3 lg:gap-2 lg:place-items-center lg:h-1/2">
+        <div className="w-full py-4 bg-card">
           <Suspense fallback={"Loading..."}>
             <FollowList username={user} followType="Followers" />
           </Suspense>
         </div>
-        <div className="outline-1 sm:w-full px-2 py-4 rounded-xl">
+        <div className="w-full px-2 py-4 bg-card">
           <Suspense fallback={"Loading..."}>
             <FollowList username={user} followType="Following" />
           </Suspense>
