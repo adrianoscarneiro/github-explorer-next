@@ -10,7 +10,7 @@ export default function FollowCard({
   avatar_url?: string;
 }) {
   return (
-    <div className="min-w-20">
+    <div className="min-w-20 rounded-2xl bg-foreground border-2 py-2">
       <Link
         href={`./${username}`}
         className="flex flex-col gap-1 place-items-center"

@@ -11,8 +11,7 @@
   --card: #e6e6e6;
   --primary-text: #0d0d0d;
   --secondary-text: #4d4d4d;
-
-  --title-lg: clamp(2rem, 2rem + 0.25vsw, 2.75rem);
+  --border: #4d4d4d --title-lg: clamp(2rem, 2rem + 0.25vsw, 2.75rem);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antiliased;
@@ -20,10 +19,10 @@
 }
 
 .dark {
-  --background: #000000;
+  --background: #0d1117;
   --foreground: #0d0d0d;
   --card: #1a1a1a;
-  --primary-text: #f2f2f2;
+  --primary-text: #e6e3e3;
   --secondary-text: #bfbfbf;
 }
 
@@ -62,4 +61,12 @@ h2 {
 
 dt {
   font-size: larger;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchMenu";
 export default function Home() {
   return (
     <section className="flex flex-col place-items-center gap-2 py-8 px-4 min-h-screen">
-      <div className="self-center px-2 py-4">
+      <div className="w-1/2 self-center px-2 py-4">
         <SearchBar />
       </div>
       <div className="text-center sm:w-3/4 sm:flex sm:flex-col sm:place-items-center lg:w-1/2 rounded-xl">

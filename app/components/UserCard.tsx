@@ -19,7 +19,7 @@ export default function UserCard({
     public_repos,
   } = userDetails;
   return (
-    <section className="flex flex-col gap-4 py-4 px-4 bg-card">
+    <section className="flex flex-col gap-4 py-4 px-4 bg-card rounded-2xl">
       <div className="flex flex-col gap-2 place-items-center">
         <Image
           width={100}

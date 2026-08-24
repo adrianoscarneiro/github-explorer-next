@@ -14,7 +14,7 @@ export default async function FollowList({
       ? await getGithubFollowers(username)
       : await getGithubFollowing(username);
 
-  const followList = userFollow.slice(0, 9).map(({ id, login, avatar_url }) => {
+  const followList = userFollow.slice(0, 6).map(({ id, login, avatar_url }) => {
     return (
       <li key={id}>
         <FollowCard username={login} avatar_url={avatar_url} />

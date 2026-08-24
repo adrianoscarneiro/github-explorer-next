@@ -6,7 +6,6 @@ export interface GithubUser {
   avatar_url: string;
   location: string;
   public_repos: number;
-  blog: string;
 }
 
 export interface GithubRepos {
@@ -18,6 +17,7 @@ export interface GithubRepos {
   updated_at: string;
   watchers_count: number;
   stargazers_count: number;
+  html_url: string;
 }
 
 export interface GithubSocialConnection {

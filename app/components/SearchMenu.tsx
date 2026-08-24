@@ -13,19 +13,19 @@ function SearchBar() {
   }
 
   return (
-    <form className="min-w-100 outline-2 rounded-2xl" onSubmit={handleSubmit}>
+    <form className="w-full bg-white" onSubmit={handleSubmit}>
       <input
         type="text"
         name="searchTxt"
         placeholder="Enter the username..."
-        className="w-2/3 h-10 px-4 outline-none bg-none"
+        className=""
         autoComplete="off"
         ref={inputRef}
       />
       <input
         type="submit"
         value="Search"
-        className="w-1/3 h-10 border-s-2 rounded-e-2xl bg-zinc-900
+        className="bg-zinc-900
   border border-white/10
   shadow-sm
   hover:bg-zinc-800
