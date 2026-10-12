@@ -16,7 +16,6 @@ export default function Home() {
           follower count, and their public repositories, all pulled live from
           the GitHub API. Just search a username and dive in.
         </p>
-
       </div>
     </section>
   );
